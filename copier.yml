@@ -54,6 +54,11 @@ repository_name:
   help: Your repository name
   default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
 
+conda_channel:
+  type: str
+  help: Conda channel of the package (if any)
+  default: conda-forge
+
 copyright_holder:
   type: str
   help: The name of the person/entity holding the copyright
