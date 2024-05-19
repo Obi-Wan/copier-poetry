@@ -29,7 +29,7 @@ Similar templates:
   with [coverage](https://github.com/nedbat/coveragepy) support
 - Cross-platform tasks with [duty](https://github.com/pawamoy/duty)
 - Support for GitHub workflow and Gitlab CI
-- Python 3.8 or above
+- Python 3.10 or above
 - Auto-generated `CHANGELOG.md` from git commits (using Angular message style)
 - Auto-generated `CREDITS.md` from Python dependencies
 - All licenses from [choosealicense.com](https://choosealicense.com/appendix/)
@@ -38,17 +38,17 @@ Similar templates:
 ## Quick setup and usage
 
 Make sure all the
-[requirements](https://pawamoy.github.io/copier-poetry/requirements)
+[requirements](https://Obi-Wan.github.io/copier-poetry/requirements)
 are met, then:
 
 ```bash
-copier "https://github.com/pawamoy/copier-poetry.git" /path/to/your/new/project
+copier "https://github.com/Obi-Wan/copier-poetry.git" /path/to/your/new/project
 ```
 
 Or even shorter:
 
 ```bash
-copier "gh:pawamoy/copier-poetry" /path/to/your/new/project
+copier "gh:Obi-Wan/copier-poetry" /path/to/your/new/project
 ```
 
 See the [documentation](https://pawamoy.github.io/copier-poetry)

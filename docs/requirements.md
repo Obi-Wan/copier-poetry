@@ -24,23 +24,21 @@ export PYENV_ROOT="${HOME}/.pyenv"
 eval "$(pyenv init -)"
 
 # install Python 3
-pyenv install 3.8.6
+pyenv install 3.10
 
 # make it available globally
-pyenv global system 3.8.6
+pyenv global system 3.10
 
 # finally, restart your shell
 # to make sure your environment is up-to-date
 ```
 
-To install Copier, use `pip`
-or [`pipx`](https://pipxproject.github.io/pipx/):
+To install Copier, use `pip` or `conda`:
 
 ```bash
 pip install --user copier
 ```
 
 ```bash
-pip install --user pipx
-pipx install copier
+conda install copier -c conda-forge
 ```

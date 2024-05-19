@@ -11,23 +11,19 @@ license = "{{ copyright_license }}"
 readme = "README.md"
 repository = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}"
 homepage = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}"
+documentation = "https://{{ repository_namespace }}.{{ repository_provider }}.io/{{ repository_name }}/"
 keywords = []
 packages = [ { include = "{{ python_package_import_name }}", from = "src" } ]
 
 [tool.poetry.dependencies]
-python = ">=3.8.2"
+python = ">=3.10"
 
 [tool.poetry.dev-dependencies]
 # formatting, quality, tests
 autoflake = ">=1.4"
-black = ">=21.12b0"
-isort = ">=5.7.0"
-mypy = ">=0.812"
-pytest = ">=6.2.2"
-pytest-cov = ">=2.11.1"
-pytest-randomly = ">=3.5.0"
-pytest-sugar = ">=0.9.4"
-pytest-xdist = ">=2.2.0"
+black
+isort
+pytest
 types-toml = ">=0.10.1"
 
 # tasks
@@ -62,11 +58,11 @@ mkdocstrings = ">=0.16.2"
 {{ python_package_command_line_name }} = "{{ python_package_import_name }}.cli:main"
 
 [tool.black]
-line-length = 120
+line-length = 127
 exclude = "tests/fixtures"
 
 [tool.isort]
-line_length = 120
+line_length = 127
 not_skip = "__init__.py"
 multi_line_output = 3
 force_single_line = false
