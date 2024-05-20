@@ -23,7 +23,7 @@ env:
   # It makes it easier to later remove the virtualenv when it's broken.
   # Absolute path is necessary to avoid this issue:
   # https://github.com/python-poetry/poetry/issues/3049
-  POETRY_CACHE_DIR: ${{ github.workspace }}/.poetry_cache
+  POETRY_CACHE_DIR: ${{ "{{ github.workspace }}" }}/.poetry_cache
 
 jobs:
 
@@ -38,7 +38,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.10
+        python-version: {{ python_versions.split(' ')|first }}
 
     - name: Set up Poetry
       run: pip install poetry
@@ -70,19 +70,19 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.10", "3.11", "3.12"]
+        os: {{ "[" }} ubuntu-latest, macos-latest, windows-latest {{ "]" }}
+        python-version: {{ "[" }} {{ python_versions.split(' ')|join(', ') }} {{ "]" }}
 
-    runs-on: ${{ matrix.os }}
+    runs-on: {{ "${{ matrix.os }}" }}
 
     steps:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python {{ "${{ matrix.python-version }}" }}
       uses: actions/setup-python@v4
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: {{ "${{ matrix.python-version }}" }}
 
     - name: Set up Poetry
       run: pip install poetry
@@ -91,7 +91,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: .poetry_cache
-        key: tests-poetry-cache-${{ matrix.os }}-py${{ matrix.python-version }}
+        key: tests-poetry-cache-{{ "${{ matrix.os }}-py${{ matrix.python-version }}" }}
 
     - name: Set up the project
       run: poetry install -vv || { rm -rf .poetry_cache/virtualenvs/*; poetry install -vv; }

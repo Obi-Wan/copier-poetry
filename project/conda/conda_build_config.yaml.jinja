@@ -1,0 +1,4 @@
+python:
+{%- for python_version in python_versions.split(" ") %}
+  - {{ python_version}}
+{%- endfor %}

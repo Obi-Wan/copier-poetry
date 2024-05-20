@@ -16,7 +16,13 @@ keywords = []
 packages = [ { include = "{{ python_package_import_name }}", from = "src" } ]
 
 [tool.poetry.dependencies]
-python = ">=3.10"
+{%- set python_versions_dict = [] %}
+{%- for version_str in python_versions.split(' ') %}
+{%-     set _ = python_versions_dict.append({"major" : version_str.split('.')[0]|int, "minor": version_str.split('.')[1]|int}) %}
+{%- endfor%}
+{%- set smallest_python_version = python_versions_dict|sort(attribute='major,minor')|first %}
+{%- set smallest_python_version_str = ["{}".format(smallest_python_version["major"]), "{}".format(smallest_python_version["minor"])] %}
+python = ">={{ smallest_python_version_str|join('.') }}"
 
 [tool.poetry.dev-dependencies]
 # formatting, quality, tests

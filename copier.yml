@@ -54,6 +54,11 @@ repository_name:
   help: Your repository name
   default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
 
+python_versions:
+  type: str
+  help: The list of supported Python versions
+  default: 3.10 3.11 3.12
+
 conda_channel:
   type: str
   help: Conda channel of the package (if any)
