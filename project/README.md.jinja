@@ -13,14 +13,54 @@
 
 {{ project_description }}
 
-## Installation
+## Getting Started
 
-With `pip`:
+It takes a few steps to setup {{ project_name }} on your machine. We recommend installing
+[Anaconda package manager](https://www.anaconda.com/download/) or the more compact
+[Miniconda](https://docs.anaconda.com/free/miniconda/index.html) for Python 3.
+
+### Installing with conda
+
+Simply install with:
+```bash
+conda install {{ python_package_distribution_name }} -c {{ conda_channel }}
+```
+
+### Installing from PyPI
+
+Simply install with:
 ```bash
 python3 -m pip install {{ python_package_distribution_name }}
 ```
 
-With `conda`:
-```bash
-conda install {{ python_package_distribution_name }} -c {{ conda_channel }}
+If you are on jupyter, and don't have the rights to install packages system-wide, then you can install with:
+```python
+! pip install --user {{ python_package_distribution_name }}
 ```
+
+### Installing from source
+
+To install {{ project_name }}, simply clone this {{ repository_provider }} project with either:
+```bash
+git clone https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}.git {{ python_package_distribution_name }}
+```
+or:
+```bash
+git clone git@{{ repository_provider }}:{{ repository_namespace }}/{{ repository_name }}.git {{ python_package_distribution_name }}
+```
+
+Then go to the cloned directory and run `pip` installer:
+```bash
+cd {{ python_package_distribution_name }}
+pip install -e .
+```
+
+## How to contribute
+
+Contributions are always welcome. Please submit pull requests against the `main` branch.
+
+If you have any issues, questions, or remarks, then please open an issue on {{ repository_provider }}.
+
+## License
+
+This project is licensed under the BSD license - see the [LICENSE](LICENSE) file for details.
