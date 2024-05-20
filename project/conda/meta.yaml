@@ -10,8 +10,9 @@ source:
     path: ../
 
 build:
+    # Remove comment from line here below, if your package is pure Python
+    # noarch: python
     number: '0'
-    # script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt || exit 1"
     script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed . -vv || exit 1"
 
 requirements:
